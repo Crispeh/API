@@ -1,0 +1,4 @@
+name: APICore
+main: com.crispeh.apicore.APICore
+authors: [Crispeh]
+version: 1.0.1
