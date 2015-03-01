@@ -1,9 +1,11 @@
 package com.crispeh.apicore.util;
 
-import com.sun.media.jfxmedia.logging.Logger;
+import com.crispeh.apicore.command.APICommandHandler;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by Joey on 3/1/2015.
@@ -32,6 +34,9 @@ public abstract class APIModule extends JavaPlugin {
         for(T t : info) {
             getServer().getConsoleSender().sendMessage(t.toString());
         }
+    }
+    protected final <T extends APICommandHandler> T registerCommand(Class<T> apiCommand) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        return apiCommand.getDeclaredConstructor().newInstance();
     }
 
 
