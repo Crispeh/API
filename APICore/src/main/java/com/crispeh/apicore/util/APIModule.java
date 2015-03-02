@@ -18,6 +18,7 @@ public abstract class APIModule extends JavaPlugin {
     @Override
     @SneakyThrows
     public void onEnable() {
+        instance = this;
         enable();
         saveDefaultConfig();
     }
