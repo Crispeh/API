@@ -1,0 +1,5 @@
+name: HubCore
+main: com.crispeh.hubcore.HubCore
+version: 1.0.3
+authors: [Crispeh]
+depend: [APICore]

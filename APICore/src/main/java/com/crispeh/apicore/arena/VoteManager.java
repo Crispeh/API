@@ -19,7 +19,7 @@ public class VoteManager {
      * @param arena the arena the vote is being added to.
      */
     public static void addVote(GArena arena) {
-        if(GArenaManager.arenaLoaded(arena)) {
+        if(GArenaManager.arenaExists(arena)) {
             if(getArenaVotes().get(arena) != null) {
                 arenaVotes.put(arena, arenaVotes.get(arena)+1);
             }else arenaVotes.put(arena, 1);
@@ -32,7 +32,7 @@ public class VoteManager {
      * @param arena the arena the vote is being removed from.
      */
     public static void removeVote(GArena arena) {
-        if(GArenaManager.arenaLoaded(arena)) {
+        if(GArenaManager.arenaExists(arena)) {
             arenaVotes.put(arena, arenaVotes.get(arena)-1);
         }
     }

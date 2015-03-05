@@ -50,6 +50,9 @@ public final class GArenaManager {
         if(arenas.get(ID) == null) throw new GArenaException("No arenas exist under this ID!");
         return arenas.get(ID);
     }
+    public static Boolean arenaExists(GArena arena) {
+        return arenas.containsKey(arena.ID);
+    }
 
     /**
      * Loads an arena, which allows the world to be modified and accessed by players.
