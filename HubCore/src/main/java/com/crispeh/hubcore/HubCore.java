@@ -6,7 +6,7 @@ import lombok.Getter;
 /**
  * Created by Joey on 3/4/2015.
  */
-public class HubCore extends APIModule {
+public abstract class HubCore extends APIModule {
 
     @Getter private static HubCore instance;
 

@@ -50,6 +50,13 @@ public final class GArenaManager {
         if(arenas.get(ID) == null) throw new GArenaException("No arenas exist under this ID!");
         return arenas.get(ID);
     }
+
+    /**
+     * Gets if the specified arena exists.
+     *
+     * @param arena the arena to be checked for.
+     * @return true if the arena has been added, otherwise false.
+     */
     public static Boolean arenaExists(GArena arena) {
         return arenas.containsKey(arena.ID);
     }
