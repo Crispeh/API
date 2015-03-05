@@ -20,11 +20,11 @@ public class HubItemManager implements Listener {
 
     public HubItemManager() {
         HubCore.getInstance().registerListener(this);
-        addHubItems(items);
+        addHubItems();
     }
 
-    public static void addHubItems(List<HubItem> items) {
-        for(HubItem item : items) {
+    public static void addHubItems(HubItem... items1) {
+        for(HubItem item : items1) {
             add(item);
         }
     }
