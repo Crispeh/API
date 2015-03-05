@@ -1,6 +1,5 @@
 package com.crispeh.hubcore.item;
 
-import com.crispeh.hubcore.HubCore;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,12 +18,11 @@ public class HubItemManager implements Listener {
     private static List<HubItem> items = new ArrayList<>();
 
     public HubItemManager() {
-        HubCore.getInstance().registerListener(this);
         addHubItems();
     }
 
-    public static void addHubItems(HubItem... items1) {
-        for(HubItem item : items1) {
+    public static void addHubItems(HubItem... items) {
+        for(HubItem item : items) {
             add(item);
         }
     }
