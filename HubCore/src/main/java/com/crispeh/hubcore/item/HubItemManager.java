@@ -21,6 +21,11 @@ public class HubItemManager implements Listener {
         addHubItems();
     }
 
+    /**
+     * Registers HubItems to be added to the players inventory.
+     *
+     * @param items All HubItems to be added.
+     */
     public static void addHubItems(HubItem... items) {
         for(HubItem item : items) {
             add(item);
@@ -37,6 +42,7 @@ public class HubItemManager implements Listener {
         ItemStack itemStack;
         ItemStack itemInSlot;
 
+        player.getInventory().clear();
         for(HubItem item : items) {
             if(!shouldAdd(player, item.getItems())) continue;
 
@@ -61,6 +67,13 @@ public class HubItemManager implements Listener {
         }
     }
 
+    /**
+     * Sees if the item should be added to the players inventory.
+     *
+     * @param player the player that it should/shouldn't be added to.
+     * @param items the items that should/shouldn't be added to the players inventory
+     * @return if the items should be added to the players inventory.
+     */
     private Boolean shouldAdd(Player player, List<ItemStack> items) {
         for(ItemStack i: items) {
             if(player.getInventory().contains(i)) return false;
