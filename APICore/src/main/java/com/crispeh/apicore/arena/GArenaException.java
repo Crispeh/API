@@ -5,6 +5,12 @@ package com.crispeh.apicore.arena;
  */
 public class GArenaException extends Exception {
 
+    /**
+     * Custom exception for the GArenaManager class.
+     *
+     *
+     * @param s Prints out the error into the provided console.
+     */
     public GArenaException(String s) {
         super(s);
     }

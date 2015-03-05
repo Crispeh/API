@@ -17,6 +17,7 @@ public final class GArena {
         author = this.author;
         w = this.w;
         ID = this.ID;
+        //Stores all arena info inside this class, as long as defined every reload, should maintain properly.
     }
 
 }
