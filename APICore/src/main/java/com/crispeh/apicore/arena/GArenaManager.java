@@ -3,7 +3,9 @@ package com.crispeh.apicore.arena;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,7 +15,7 @@ public final class GArenaManager {
 
     //Contains the arenas and loaded arenas.
     private static Map<Integer, GArena> arenas = new HashMap<>();
-    private static Map<Integer, GArena> loadedArenas = new HashMap<>();
+    private static List<GArena> loadedArenas = new ArrayList<>();
 
     /**
      * Add an arena.
@@ -58,7 +60,7 @@ public final class GArenaManager {
     public static void loadArena(GArena arena) throws GArenaException {
         if(arenaLoaded(arena)) throw new GArenaException("Arena already loaded!");
         if(arenas.get(arena.ID) == null) throw new GArenaException("Arena could not be found! Please try adding it first!");
-        loadedArenas.put(arena.ID, arena);
+        loadedArenas.add(arena);
         Bukkit.createWorld(WorldCreator.name(arena.w.getName()));
     }
 
@@ -70,7 +72,7 @@ public final class GArenaManager {
      */
     public static void unloadArena(GArena arena) throws GArenaException {
         if(!arenaLoaded(arena)) throw new GArenaException("Arena is not loaded!");
-        loadedArenas.remove(arena.ID);
+        loadedArenas.remove(arena);
         Bukkit.unloadWorld(arena.w, false);
     }
 
@@ -81,7 +83,7 @@ public final class GArenaManager {
      * @return Returns true if the arena is loaded, otherwise false.
      */
     public static Boolean arenaLoaded(GArena arena) {
-        return loadedArenas.containsKey(arena.ID);
+        return loadedArenas.contains(arena);
     }
 
 }

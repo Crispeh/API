@@ -20,4 +20,40 @@ public final class GArena {
         //Stores all arena info inside this class, as long as defined every reload, should maintain properly.
     }
 
+    /**
+     * Get the name of the arena.
+     *
+     * @return the arena name.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Get the author of the arena.
+     *
+     * @return the arena author.
+     */
+    public String getAuthor() {
+        return author;
+    }
+
+    /**
+     * Gets the world for the arena.
+     *
+     * @return the arena world.
+     */
+    public World getWorld() {
+        return w;
+    }
+
+    /**
+     * Gets the ID of the arena.
+     *
+     * @return the arena ID.
+     */
+    public Integer getID() {
+        return ID;
+    }
+
 }
