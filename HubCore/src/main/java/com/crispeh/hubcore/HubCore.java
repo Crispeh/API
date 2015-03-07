@@ -13,6 +13,7 @@ public class HubCore extends APIModule {
 
     @Override
     protected void enable() {
+        instance = this;
         logInfo("HubCore has been enabled.");
         registerListener(new HubItemManager());
     }

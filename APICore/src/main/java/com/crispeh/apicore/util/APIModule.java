@@ -4,6 +4,7 @@ import com.crispeh.apicore.command.APICommandHandler;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.lang.reflect.InvocationTargetException;
@@ -14,6 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 public abstract class APIModule extends JavaPlugin {
 
     @Getter private static APIModule instance;
+    private final PluginDescriptionFile pluginDescriptionFile = getDescription();
 
     @Override
     @SneakyThrows
@@ -37,8 +39,8 @@ public abstract class APIModule extends JavaPlugin {
             getServer().getConsoleSender().sendMessage(t.toString());
         }
     }
-    protected final <T extends APICommandHandler> T registerCommand(Class<T> apiCommand) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        return apiCommand.getDeclaredConstructor().newInstance();
+    protected final <T extends APICommandHandler> T registerCommand(Class<T> sgCommand) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        return sgCommand.getDeclaredConstructor().newInstance();
     }
     public final <T extends Listener> T registerListener(T listener) {
         getServer().getPluginManager().registerEvents(listener, this);
